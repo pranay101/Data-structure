@@ -2,7 +2,7 @@ int insert(int stack[], int * , int *,int);
 
 
 
-void pop(void);
+int pop(int stack[], int*, int *);
 
 
 

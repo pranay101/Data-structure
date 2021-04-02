@@ -12,29 +12,36 @@ int main()
     int top =-1;
     int size_of_array = 10;
     int result;
+    int result_pop;
     system("cls");
     printf("\t\t\t\t\t\t Stack Data structure \n\n");
     char choice;
-    do
+    while(1)
     {
-        label:
-            printf("\tEnter : \n\n");
-            printf("\t\t\t A to add data to stack\n");
-            printf("\t\t\t R to pop data from stack'n");
-            printf("\t\t\t P to print stack\n");
-            printf("\t\t\t Q to Quit\n");
+        printf("\tEnter : \n\n");
+        printf("\t\t A to add data to stack\n");
+        printf("\t\t R to pop data from stack\n");
+        printf("\t\t P to print stack\n");
+        printf("\t\t Q to Quit\n");
+        printf("\n\t\t Your Choice: \t ");
 
-            scanf("%c",&choice);
-            if (choice == 'a' || choice == 'A')
+        scanf("%c",&choice);
+
+
+        switch (choice)
+        {
+        case 'A':
+        case 'a':
             {
+                system("cls");
                 int data;
                 printf("\t\t Enter the data you want to insert: ");
                 scanf("%d",&data);
                 result = insert(stack,&size_of_array,&top,data);
                 if (result == 1)
                 {
-                    printf("%d is inserted in the stack.",data);
-                    printf("Enter to go back");
+                    printf("\n\n\t\t %d is inserted in the stack.",data);
+                    printf("\n\n\n\t\t Enter to go back......");
                     getch();
                     system("cls");
                 }
@@ -42,33 +49,52 @@ int main()
                 {
                     printf("Overflow, Stack is full.");
                 }
-                
                 else
                 {
                     printf("An error occured");
                 }
-                
+                break;
+            }     
+        case 'r':
+        case 'R':
+        {
+            system("cls");
+            result_pop = pop(stack,&size_of_array,&top);
+            if (result_pop == -1)
+            {
+                printf("\n\n\t\tUnderflow, theres no element to pop out..");
             }
-            if (choice == 'r' || choice == 'R')
+            else
             {
-                system("cls");
-                pop();
+                printf("\n\t\t%d is deleted from the stack",stack[result_pop]);
             }
-            if (choice == 'p' || choice == 'P')
-            {
-                system("cls");
-                print(stack,&size_of_array,&top); 
-                printf("\n\n\t\t\t Press enter to continue....");
-                getch();               
-            }            
-            if (choice == 'q' || choice == 'Q')
-            {
-                system("cls");
-                printf("exiting program... press enter");
-                getch();
-                exit(0);
-            } 
-
-    } while (choice != 'q' || choice != 'Q');
+            printf("\n\n\t\tPress enter to continue....");
+            getch();
+            break;
+        }
+        case 'p':
+        case 'P':
+        {
+            system("cls");
+            print(stack,&size_of_array,&top); 
+            printf("\n\n\t\tPress enter to continue....");
+            getch();
+            break;
+        }
+        case 'q':
+        case 'Q':
+        {
+            system("cls");
+            printf("exiting program... press enter");
+            getch();
+            exit(0);
+        }
+        default:
+        {
+            system("cls");
+            break;
+        }
+        }
+    }
     return 0;
 }
