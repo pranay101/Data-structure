@@ -36,7 +36,6 @@ int pop(int stack[], int *size_of_array, int *top)
 
 void print(int stack[], int *size_of_array, int *top)
 {
-    printf("\t\tData of stack: \t\t");
     for (int  i = 0; i <= *top; i++)
     {
         printf(" %d,",stack[i]);
