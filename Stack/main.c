@@ -8,9 +8,9 @@
 
 int main()
 {
-    int stack[10];
-    int top =-1;
     int size_of_array = 10;
+    int stack[size_of_array];
+    int top =-1;
     int result;
     int result_pop;
     system("cls");
@@ -44,15 +44,24 @@ int main()
                     printf("\n\n\n\t\t Enter to go back......");
                     getch();
                     system("cls");
+                    break;                    
                 }
                 if (result == 0)
                 {
                     printf("Overflow, Stack is full.");
+                    getch();
+                    system("cls");
+                    break;
                 }
                 else
                 {
                     printf("An error occured");
+                    getch();
+                    system("cls");
+                    break;
                 }
+                getch();
+                system("cls");
                 break;
             }     
         case 'r':
@@ -60,7 +69,7 @@ int main()
         {
             system("cls");
             result_pop = pop(stack,&size_of_array,&top);
-            if (result_pop == -1)
+            if (result_pop == -2)
             {
                 printf("\n\n\t\tUnderflow, theres no element to pop out..");
             }

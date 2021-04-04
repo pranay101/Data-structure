@@ -5,7 +5,7 @@
 
 int insert(int stack[],int *size_of_array, int *top, int data)
 {
-    if (*top == *size_of_array)
+    if (*top == *size_of_array-1)
     {
         return 0;
     }
@@ -23,13 +23,13 @@ int pop(int stack[], int *size_of_array, int *top)
     int temp;
     if (*top < 0)
     {
-        return -1 ;
+        return -2 ;
     }
     else
     {
        temp =  *top;
        *top = *top-1;
-       return *top;
+       return temp;
     }
    
 }
