@@ -1,15 +1,18 @@
+//header files ----------------------------------------------------------------------------
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
-#include"helpers.h"
+#include"helpers.h" // userdefined header file
 
 
-
+//----------------------------------------------------------------------------------------
 
 int main()
 {
+
     int size_of_array = 10;
-    int stack[size_of_array];
+    int stack[size_of_array]; //stack itself
     int top =-1;
     int result;
     int result_pop;
@@ -18,6 +21,7 @@ int main()
     char choice;
     while(1)
     {
+        // main menu
         printf("\tEnter : \n\n");
         printf("\t\t A to add data to stack\n");
         printf("\t\t R to pop data from stack\n");
@@ -27,17 +31,18 @@ int main()
 
         scanf("%c",&choice);
 
-
+        // switch according to user's choice
         switch (choice)
         {
         case 'A':
         case 'a':
             {
+
                 system("cls");
                 int data;
                 printf("\t\t Enter the data you want to insert: ");
                 scanf("%d",&data);
-                result = insert(stack,&size_of_array,&top,data);
+                result = insert(stack,&size_of_array,&top,data); // refer to helpers.h for more info regarding the function
                 if (result == 1)
                 {
                     printf("\n\n\t\t %d is inserted in the stack.",data);
@@ -68,7 +73,7 @@ int main()
         case 'R':
         {
             system("cls");
-            result_pop = pop(stack,&size_of_array,&top);
+            result_pop = pop(stack,&size_of_array,&top); // refer to helpers.h for more info regarding the function
             if (result_pop == -2)
             {
                 printf("\n\n\t\tUnderflow, theres no element to pop out..");
@@ -86,7 +91,7 @@ int main()
         {
             system("cls");
             print(stack,&size_of_array,&top); 
-            printf("\n\n\t\tPress enter to continue....");
+            printf("\n\n\t\tPress enter to continue...."); // refer to helpers.h for more info regarding the function
             getch();
             break;
         }
@@ -107,3 +112,5 @@ int main()
     }
     return 0;
 }
+
+//----------------------------------------------------------------------------------------
