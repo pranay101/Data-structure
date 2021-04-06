@@ -1,6 +1,10 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+#include <ctype.h>
+
+
+#include"helpers.h" // user-defined headerfile
 
 
 //----------------------------------------------------------------------------------------
@@ -9,19 +13,29 @@
 // function to insert data
 int insert(int stack[],int *size_of_array, int *top, int data)
 {
-    if (*top == *size_of_array-1) // check if the stacks if full already, overflow
+    if (!isdigit(data))
     {
-        return 0;
+      if (*top == *size_of_array-1) // check if the stacks if full already, overflow
+        {
+            printf("overflow");
+            return 0;
+        }
+        else
+        {
+            // else insert the data in stack
+            *top = *top+1;
+            stack[*top] = data;
+            return 1;
+        }
+        // return if theres any error.
+        return 2;  
     }
     else
     {
-        // else insert the data in stack
-        *top = *top+1;
-        stack[*top] = data;
-        return 1;
+        return 3;
     }
-    // return if theres any error.
-    return 2;
+    
+    
 }
 
 
@@ -42,6 +56,7 @@ int pop(int stack[], int *size_of_array, int *top)
        *top = *top-1;
        return temp;
     }
+
    
 }
 
@@ -49,14 +64,35 @@ int pop(int stack[], int *size_of_array, int *top)
 //----------------------------------------------------------------------------------------
 
 // function to print data
-void print(int stack[], int *size_of_array, int *top)
+int print(int stack[], int *size_of_array, int *top, int istest)
 {
-    for (int  i = 0; i <= *top; i++)
+    int check = 0;
+    if (istest)
     {
-        printf(" %d,",stack[i]); // printting stack data
+        for (int  i = 0; i <= *top; i++)
+        {
+            check++;
+        }
+        return check;
     }
-    printf("\n\t\tTop is at: %d \t\t",*top+1); // printing the position of top
+    else
+    {
+       printf("\n\t\t\t");
+        for (int  i = 0; i <= *top; i++)
+        {
+            printf("%d, ",stack[i]); // printting stack data
+            check++;
+        }
+        printf("\n");
+        return check;
+    }
 }
 
 
 //----------------------------------------------------------------------------------------
+void exit_program()
+{
+    printf("\n\n\t\t\tExiting Program... Press Enter");
+    getch();
+    exit(0);
+}

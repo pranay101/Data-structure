@@ -17,7 +17,13 @@ int pop(int stack[], int*, int *);
 //----------------------------------------------------------------------------------------
 
 // print the data in stack and the position of top.
-// returns void.
-void print(int stack[],int *, int *);
+// returns number of data printed.
+// the last input indicate is its the test or not 1 - yes and 0 - no
+int print(int stack[],int *, int *,int);
 
 //----------------------------------------------------------------------------------------
+
+
+
+void exit_program();
+

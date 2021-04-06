@@ -1,5 +1,5 @@
 cm:
-	gcc -o main main.c helpers.c -I.
+	gcc -o main main.c test.c helpers.c -I.
 rn:
 	./main
 rm:
