@@ -8,10 +8,10 @@
             "name": "gcc.exe - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "E:\\code\\Stack\\main.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}",
             "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "stopAtEntry": true,
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: gcc.exe build active file ver(1)"
+            "preLaunchTask": "C/C++: gcc.exe build active file"
         }
     ]
 }

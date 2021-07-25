@@ -1,50 +1,34 @@
 #include<stdio.h>
 #include<stdbool.h>
 #include<stdlib.h>
+#include"helpers.h"
 
-void swap(int *num1, int *num2)
-{
-    int temp;
-    temp = *num1;
-    *num1 = *num2;
-    *num2 = temp;
-}
-void print_array(int *array_to_print , char *tag)
-{
-    printf("%s - ", tag);
-    for (int i = 0; i < 10; i++)
-    {
-        printf("%i, ", array_to_print[i]);
-    }
-    printf("\n");
-    
-}
 
-int* bubble_sort(int *input_array)
+int * insertion_sort(int *array_input)
 {
+    int pointer = 1;
     int length_of_array = 10;
-    int point_low = 0 ;
-    while (length_of_array >= point_low)
+    int index_high = 9 , index_low = 0;
+    int index_to_swap;
+    int data_backup;
+    while (pointer <= length_of_array)
     {
-        for (size_t i = point_low + 1 ; i < length_of_array; i++)
+        for (int i = pointer; i <= 0; i--)
         {
-            if (input_array[point_low] > input_array[i] )
-            {
-                swap(&input_array[point_low] , &input_array[i]);
-            }
+            int j= i-1;
+            array_input[i] = array_input[j--];
         }
-        point_low++;
+        array_input[index_to_swap] = data_backup;
         
     }
-    print_array(input_array,"Sorted Array");
-    return input_array;
+    print_array(array_input,"Sorted_Array");
+    return array_input;
 }
-
 
 int main(void)
 {
     int array_input[10] = {654,999,321,123,987,567,345,9447,9,197};
     print_array(array_input,"Given Array");
-    int *array_output = bubble_sort(array_input);
+    int *array_output = insertion_sort(array_input);
     return 0;
 }
