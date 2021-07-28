@@ -1,26 +1,42 @@
 #include<stdio.h>
 #include<stdbool.h>
 #include<stdlib.h>
-#include"helpers.h"
 
 
+void print_array(int *array_to_print , char *tag)
+{
+    printf("\n%s - ", tag);
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%i, ", array_to_print[i]);
+    }
+    printf("\n");
+    
+}
+void swap(int *num1, int *num2)
+{
+    int temp;
+    temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
 int * insertion_sort(int *array_input)
 {
-    int pointer = 1;
-    int length_of_array = 10;
-    int index_high = 9 , index_low = 0;
-    int index_to_swap;
+
     int data_backup;
-    while (pointer <= length_of_array)
+    int j;
+    for (int  i = 1; i < 10; i++)
     {
-        for (int i = pointer; i <= 0; i--)
+        data_backup = array_input[i];
+        j = i-1;
+        while (j >= 0 && array_input[j] < data_backup)
         {
-            int j= i-1;
-            array_input[i] = array_input[j--];
+            array_input[j+1] = array_input[j];
+            j--;
         }
-        array_input[index_to_swap] = data_backup;
-        
+        array_input[j+1] = data_backup;
     }
+    
     print_array(array_input,"Sorted_Array");
     return array_input;
 }
