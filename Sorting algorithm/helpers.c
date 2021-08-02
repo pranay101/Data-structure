@@ -8,6 +8,7 @@ void swap(int *num1, int *num2)
     temp = *num1;
     *num1 = *num2;
     *num2 = temp;
+    printf("\nSwap!!");
 }
 void print_array(int *array_to_print , char *tag)
 {

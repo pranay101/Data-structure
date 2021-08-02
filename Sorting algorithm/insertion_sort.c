@@ -1,25 +1,8 @@
 #include<stdio.h>
 #include<stdbool.h>
 #include<stdlib.h>
+#include"helpers.h"
 
-
-void print_array(int *array_to_print , char *tag)
-{
-    printf("\n%s - ", tag);
-    for (int i = 0; i < 10; i++)
-    {
-        printf("%i, ", array_to_print[i]);
-    }
-    printf("\n");
-    
-}
-void swap(int *num1, int *num2)
-{
-    int temp;
-    temp = *num1;
-    *num1 = *num2;
-    *num2 = temp;
-}
 int * insertion_sort(int *array_input)
 {
 
